@@ -1,68 +1,12 @@
 <script
-  src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-
-<style>
-#input{
-    outline: none;
-    width: 100%;
-    height: 100%;
-}
-#output{
-    border: 1px solid black;
-    padding: 8px;
-    width: 150px;
-    position: fixed;
-    top: 25px;
-    right: 15px;
-}
-#ping{
-    color: #00FF00;
-    left: 15px;
-    position: fixed;
-    bottom: 2px;
-}
-</style>
-<form action="api" id="form">
-    <input name="word" style="width: 300px;" id="auto" type="hidden">
-</form>
-<div id="input" contenteditable="true"></div>
+  src="{{url_for('static',filename='jquery-3.4.1.min.js')}}"></script>
+<link
+  href="{{url_for('static',filename='main.css')}}"
+  rel="stylesheet"
+  type="text/css">
+<div id="input" contenteditable="true"><span id="blank"></span></div>
 <div id="output"></div>
+
 <div id="ping"></div>
-<script>
-    function complete(){
-        var x = document.getElementById("input");
-        var str = (x.innerHTML).split(" ");
-        if(str.length>1){
-            x = str.pop()
-            document.getElementById("auto").value = x;
-        }else{
-            document.getElementById("auto").value = x.innerHTML;
-        }
-        if(x.innerHTML==''){
-            document.getElementById("output").style = "display:none;"
-        }else{
-            document.getElementById("output").style = "display:block;"
-        }
-        var start = (new Date()).getTime();
-        
-        $.ajax({
-            url: '/api',
-            method: 'GET',
-            data: $('form').serialize(),
-            success: function(data){
-                str = ""
-                for (x in data){
-                    str += data[x] + "<br>";
-                }
-                document.getElementById("output").innerHTML = str;
-                var end = (new Date()).getTime();
-                if((end-start)>=200){
-                    document.getElementById("ping").innerHTML = "<h3>Ping: "+(end-start)+" ms</h3>";
-                }
-            }
-        });
-    }    
-    setInterval(complete,500);
-</script>
+<script
+  src="{{url_for('static',filename='main.js')}}"></script>

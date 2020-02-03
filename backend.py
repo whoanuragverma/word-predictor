@@ -5,7 +5,7 @@ def autoComplete(str):
     f = open("storage/data.txt",'w')
     f.write(str)
     f.close()
-    time.sleep(0.1)
+    time.sleep(0.3)
     f = open("storage/out.txt",'r')
     lines = f.readlines()
     l = []
