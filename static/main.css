@@ -1,3 +1,7 @@
+body{
+    font-family: 'Open Sans', sans-serif;
+    overflow: hidden;
+}
 #input{
     outline: none;
     width: 100%;
@@ -15,4 +19,35 @@
     left: 15px;
     position: fixed;
     bottom: 2px;
+}
+#loader{
+    background-color:#1565c0;
+    height: 100%;
+    z-index: 1;
+    color: #fff;
+}
+.content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.progress{
+    background-color: #1565c0;
+    width: 550px;
+    height: 3px;
+}
+.progress .indeterminate{
+    background-color: #ffffffcc;
+}
+.icon{
+    width: 65px;
+    height: 65px;
+}
+.intro{
+    font-weight: 600;
+    font-size: 28px;
+}
+.short-exp{
+    font-weight: 300;
 }

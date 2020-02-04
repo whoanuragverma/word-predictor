@@ -1,3 +1,10 @@
+$(window).on('load',function (){
+    setInterval(removeLoader,4000);    
+});
+function removeLoader(){
+    $("#loader").remove();
+    document.getElementById("body").style = "overflow:auto;";
+}
 $("#input").bind("change paste keyup", function() {
     var itime = (new Date()).getTime();
     var i = $(this).text();
