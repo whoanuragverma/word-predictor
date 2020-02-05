@@ -26,6 +26,12 @@ body{
     z-index: 1;
     color: #fff;
 }
+#offline{
+    background-color:#616161;
+    height: 100%;
+    z-index: 1;
+    color: #fff;
+}
 .content{
     position: absolute;
     top: 50%;
@@ -50,4 +56,7 @@ body{
 }
 .short-exp{
     font-weight: 300;
+}
+#offline{
+    display: none;
 }

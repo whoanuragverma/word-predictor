@@ -5,7 +5,7 @@ function removeLoader(){
     $("#loader").remove();
     document.getElementById("body").style = "overflow:auto;";
 }
-$("#input").bind("change paste keyup", function() {
+$("#input").bind("change keyup", function() {
     var itime = (new Date()).getTime();
     var i = $(this).text();
     i = i.split(" ");
@@ -35,8 +35,25 @@ $("#input").bind("change paste keyup", function() {
   }
 });
 $("#input").keydown(function(e){
+    console.log(e.keyCode);
     if(e.keyCode==13){
         e.preventDefault();
-        alert("Enter key press not yet supported!");
+        console.log("Enter key support coming soon!")
     }
 })
+$("#body").bind("contextmenu paste",function(e){
+    console.log("Right click and paste disabled.")
+    e.preventDefault();
+})
+function offline(){
+    if(navigator.onLine!=true){
+        $("#offline").fadeIn(1500);
+        $("#ui").hide();
+        $("#loader").fadeOut(1200);
+    }else{
+        $("#offline").fadeOut(1200);
+        $("#ui").fadeIn(1500);
+        $("#loader").fadeIn(1500);
+    }
+}
+setInterval(offline,1000);

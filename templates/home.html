@@ -7,6 +7,18 @@
   <link href="{{url_for('static',filename='main.css')}}" rel="stylesheet" type="text/css">
   </head>
   <body id="body">
+    <div id="offline">
+      <div class="content">
+        <div class="text-center">
+        <img src="{{url_for('static',filename='icon.png')}}" alt="icon" class="icon">
+        <br><br>
+    <div class="intro">Autocomplete Text Editor</div>
+    <br>
+    <div class="short-exp">Uh oh! Seems like you're offline. Trying to reconnect... </div><br>
+    <div class="progress" style="background-color: #616161;">
+      <div class="indeterminate"></div>
+    </div>
+    </div></div></div>
   <div id="loader">
     <div class="content">
         <div class="text-center">
@@ -23,10 +35,12 @@
       </div>
     </div>
   </div>
+<div id = "ui">
 <div id="input" contenteditable="true"><span id="blank"></span></div>
 <div id="output"></div>
 
 <div id="ping"></div>
+</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
