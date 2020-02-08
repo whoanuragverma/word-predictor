@@ -1,14 +1,23 @@
 $(window).on('load',function (){
-    setInterval(removeLoader,4000);    
+    setInterval(removeLoader,4000);   
 });
+var active = "elem2" 
 function removeLoader(){
     $("#loader").remove();
     document.getElementById("body").style = "overflow:auto;";
 }
 $("#input").bind("change keyup", function() {
+    
     var itime = (new Date()).getTime();
     var i = $(this).text();
+    
     i = i.split(" ");
+    var first_w = i[0];
+    if(i!=''){
+        document.getElementById("title").innerHTML = first_w;
+    }else{
+        document.getElementById("title").innerHTML = "Untitled";
+    }
     i = i.pop();
     var pos = $("#blank").position();
     document.getElementById("output").style = `left:` + (pos.left + 25) + `px;top:`+ (pos.top+15) +`px;`;
@@ -35,7 +44,6 @@ $("#input").bind("change keyup", function() {
   }
 });
 $("#input").keydown(function(e){
-    console.log(e.keyCode);
     if(e.keyCode==13){
         e.preventDefault();
         console.log("Enter key support coming soon!")
@@ -45,7 +53,19 @@ $("#body").bind("contextmenu paste",function(e){
     console.log("Right click and paste disabled.")
     e.preventDefault();
 })
+$('span.buttons').click(function() { 
+    var id = $(this).attr('id');
+    document.getElementById(active).className = "buttons";
+    active = id;
+    document.getElementById(id).className = "buttons active";
+});
 function offline(){
+    if(window.innerWidth<640){
+        $("#loader").fadeOut(1200);
+        $("ui").fadeIn(1500);
+        $("#notsupport").show();
+    }else{
+        $("#notsupport").hide();
     if(navigator.onLine!=true){
         $("#offline").fadeIn(1500);
         $("#ui").hide();
@@ -54,6 +74,6 @@ function offline(){
         $("#offline").fadeOut(1200);
         $("#ui").fadeIn(1500);
         $("#loader").fadeIn(1500);
-    }
+    }}
 }
 setInterval(offline,1000);

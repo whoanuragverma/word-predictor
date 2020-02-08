@@ -1,6 +1,10 @@
 body{
     font-family: 'Open Sans', sans-serif;
     overflow: hidden;
+    
+}
+::-webkit-scrollbar{
+    width: 0px !important;
 }
 #input{
     outline: none;
@@ -21,12 +25,18 @@ body{
     bottom: 2px;
 }
 #loader{
-    background-color:#1565c0;
+    background-color:#1976d2;
     height: 100%;
     z-index: 1;
     color: #fff;
 }
 #offline{
+    background-color:#616161;
+    height: 100%;
+    z-index: 1;
+    color: #fff;
+}
+#notsupport{
     background-color:#616161;
     height: 100%;
     z-index: 1;
@@ -39,7 +49,7 @@ body{
     transform: translate(-50%,-50%);
 }
 .progress{
-    background-color: #1565c0;
+    background-color: #1976d2;
     width: 550px;
     height: 3px;
 }
@@ -59,4 +69,41 @@ body{
 }
 #offline{
     display: none;
+}
+.banner{
+    background-color: #1976d2;
+    
+    height: 60px;
+    color: white;
+}
+.top{
+    padding-top: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.layout{
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 500;
+}
+.buttons{
+    padding-right: 18px;
+    padding-left: 18px;
+    padding-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.text{
+    position: relative;
+    bottom: -4px;
+}
+.active{
+    background-color: #ffffff;
+    color:black;
+    padding-bottom: 12px;
+}
+.buttons:not(.active):hover{
+    background-color: #0d47a1;
+
+    transition-duration: 0.5s;
 }
