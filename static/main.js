@@ -1,3 +1,4 @@
+
 $(window).on('load',function (){
     setInterval(removeLoader,4000);   
 });
@@ -6,11 +7,10 @@ function removeLoader(){
     $("#loader").remove();
     document.getElementById("body").style = "overflow:auto;";
 }
-$("#input").bind("change keyup", function() {
-    
+$("#input").on("keyup", function(e) {
+    if(e.keyCode!=32){
     var itime = (new Date()).getTime();
-    var i = $(this).text();
-    
+    var i = $(this).text(); 
     i = i.split(" ");
     var first_w = i[0];
     if(i!=''){
@@ -21,7 +21,7 @@ $("#input").bind("change keyup", function() {
     i = i.pop();
     var pos = $("#blank").position();
     document.getElementById("output").style = `left:` + (pos.left + 25) + `px;top:`+ (pos.top+15) +`px;`;
-    if(i!=''&&i!=" "){
+    if(i!=''&&i[i.length-1]!=" "){
       var url = "/api?word=" + i;
       $.ajax({
           url: url,
@@ -41,7 +41,7 @@ $("#input").bind("change keyup", function() {
               if(otime-itime>250) document.getElementById("ping").innerHTML = "<h2>Ping:" + (otime-itime) + " ms</h2>";
           }
       });
-  }
+  }}
 });
 $("#input").keydown(function(e){
     if(e.keyCode==13){
