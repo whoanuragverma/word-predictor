@@ -21,7 +21,7 @@ Please make sure to update tests as appropriate.
 
 ## Contributors
 
- - [Anurag Verma](twitter.com/whoanuragverma) - UI/UX and algorithms
+ - Anurag Verma - UI/UX and algorithms
 
 ## Copyrights
 
