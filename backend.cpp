@@ -190,10 +190,12 @@ int main() {
             stat("storage/data.txt", &fileInfo);
             strcpy(oldtime,ctime(&fileInfo.st_mtime));
         ifstream read;
-        read.open("storage/data.txt",ios::in);
+        read.open("storage/data.txt",ios::in);   
         string s;
         read>>s;
         read.close();
+        cout<<"Data Recieved:"<<s<<endl;
+        
         transform(s.begin(), s.end(), s.begin(),::tolower);
         vector<string> autoCompleteList;
         trie->autoComplete(s,autoCompleteList);

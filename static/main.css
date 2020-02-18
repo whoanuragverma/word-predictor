@@ -1,32 +1,73 @@
 body{
     font-family: 'Open Sans', sans-serif;
     overflow: hidden;
+    
+}
+::-webkit-scrollbar{
+    width: 0px !important;
+}
+#ui{
+    display: none;
+}
+.bck{
+    position: fixed;
+    width: 100% !important;
+    height: 100% !important;
+    background-color: #f3f3f3;
+}
+.expan{
+    background-color: #fff;
+    padding: 14px;
+    width: 100%;
+    color: black;
+    height: 80px;
+    position: relative;
+    top: 9px;
+    border-bottom:  0.7px solid #b6b2af;
 }
 #input{
+    background-color: #ffffff;
+    position: relative;
+    top: 180px;
+    left: 50%;
     outline: none;
+    padding-top: 70px;
+    padding-left: 60px;
+    padding-right: 60px;
+    transform: translateX(-50%);
+    max-width: 800px !important;
+    border: 1px solid #b6b2af;
     width: 100%;
-    height: 100%;
+    height: 1500px;
+    margin-bottom: 100px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
 }
 #output{
     border: 1px solid black;
     padding: 8px;
     width: 150px;
-    position: fixed;
-    top: 1500px;
+    position: absolute;
+    top:275.667px;
+    left:300.094px;
 }
 #ping{
-    color: #00FF00;
-    left: 15px;
-    position: fixed;
-    bottom: 2px;
+    color: inherit;
+    font-size: inherit;
 }
 #loader{
-    background-color:#1565c0;
+    background-color:#1976d2;
     height: 100%;
     z-index: 1;
     color: #fff;
 }
 #offline{
+    background-color:#616161;
+    height: 100%;
+    z-index: 1;
+    color: #fff;
+}
+#notsupport{
     background-color:#616161;
     height: 100%;
     z-index: 1;
@@ -39,7 +80,7 @@ body{
     transform: translate(-50%,-50%);
 }
 .progress{
-    background-color: #1565c0;
+    background-color: #1976d2;
     width: 550px;
     height: 3px;
 }
@@ -59,4 +100,55 @@ body{
 }
 #offline{
     display: none;
+}
+.banner{
+    background-color: #1976d2;
+    z-index: 2;
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    color: white;
+}
+.top{
+    padding-top: 8px;
+    font-size: 14px;
+    font-weight: 500;
+}
+.layout{
+    padding-left: 30px;
+    padding-right: 30px;
+    font-weight: 500;
+}
+.buttons{
+    padding-right: 18px;
+    padding-left: 18px;
+    padding-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+.text{
+    position: relative;
+    bottom: -4px;
+}
+.active{
+    background-color: #ffffff;
+    color:black;
+    padding-bottom: 12px;
+}
+.buttons:not(.active):hover{
+    background-color: #0d47a1;
+    transition-duration: 0.5s;
+}
+#ftr{
+    z-index: 1;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    border-top: 1px solid #b6b2af;
+    background-color: #f0f0f0;
+    display:none;
+    font-size: 10px;
+    padding: 4px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
