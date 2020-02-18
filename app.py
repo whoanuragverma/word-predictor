@@ -10,7 +10,7 @@ def home():
 
 @app.errorhandler(404)
 def error(error):
-    return ""
+    return "404--Not Found"
 
 @app.route('/api')
 def api():

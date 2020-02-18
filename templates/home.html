@@ -56,20 +56,27 @@
       <span class="buttons" id="elem5"><span class="button text">About</span></span>
       <span class="buttons" id="elem6"><span class="button text">References</span></span>
     </div>
-    <div class="expan" id="ele1">A changin menu here -- To be added</div>
+    <div class="expan" id="ele1">A changing menu here -- To be added</div>
   </div>
+  
 <div class="bck"></div>
-<div id="input" contenteditable="true"><span id="blank"></span></div>
-<div id="output"></div>
+<pre id="input" contenteditable="true"> </pre>
+<pre id="output"></pre>
 
-<div id="ping"></div>
+
+<div id="ftr">
+  Words: <span id="wrds">0</span>
+  <span id="ping" class="float-right"></span>
 </div>
+</div>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script
 src="{{url_for('static',filename='jquery-3.4.1.min.js')}}"></script>
+<script src="{{url_for('static',filename='caret.js')}}"></script>
 <script src="{{url_for('static',filename='main.js')}}"></script>
 </body>
 </html>
