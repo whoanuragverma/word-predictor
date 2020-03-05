@@ -141,7 +141,7 @@ void Trie::parseTree(Node *current, char *s,std::vector<string> &res,bool& loop)
         if(current!=NULL){
             if(current->wordMarker()==true){
                 res.push_back(s);
-                if(res.size()>25)
+                if(res.size()>12)
                     loop=false;
             }
             vector<Node *> child=current->children();
@@ -202,7 +202,6 @@ int main() {
         if(autoCompleteList.size()==0){
         ofstream out;
         out.open("storage/out.txt");
-        out<<"No Suggestions"<<endl;
         out.close();
         }else{
           ofstream out;
