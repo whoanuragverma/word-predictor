@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-   # os.system('''cmd /c "start /min cmd.exe /c backend.exe "''')
+    os.system('''cmd /c "start /min cmd.exe /c backend.exe "''')
     return render_template('home.html')
 
 @app.errorhandler(404)
