@@ -44,7 +44,7 @@ body{
     font-size: 14px;
 }
 #output{
-    z-index: 4;
+    z-index: 1;
     position: relative;
     top: 40px;
     font-family: 'Open Sans', sans-serif;
