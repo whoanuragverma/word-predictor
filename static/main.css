@@ -44,12 +44,12 @@ body{
     font-size: 14px;
 }
 #output{
-    border: 1px solid black;
-    padding: 8px;
-    width: 150px;
-    position: absolute;
-    top:275.667px;
-    left:300.094px;
+    z-index: 4;
+    position: relative;
+    top: 40px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    display: none;
 }
 #ping{
     color: inherit;
@@ -151,4 +151,9 @@ body{
     padding: 4px;
     padding-left: 20px;
     padding-right: 20px;
+}
+.toast{
+    background-color: #616161;
+    width: 320px;
+    max-height: 40px;
 }
