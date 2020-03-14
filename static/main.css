@@ -3,6 +3,10 @@ body{
     overflow: hidden;
     
 }
+a{
+    text-decoration: none !important;
+    color: #000;
+}
 ::-webkit-scrollbar{
     width: 0px !important;
 }
@@ -156,4 +160,32 @@ body{
     background-color: #616161;
     width: 320px;
     max-height: 40px;
+}
+.expan{
+    display: none;
+}
+.active1{
+    display: block;
+}
+.row{
+    padding-left: 15px;
+    cursor: pointer;
+}
+i{
+    padding: 5px;
+    font-size: 28px !important;
+}
+.col-1:hover{
+    color: #0057b3;
+}
+@media print{
+    .banner, #ftr, #output{
+        display: none !important;
+    }
+    #input{
+        border: none !important;
+        position: fixed;
+        top: 0px;
+        margin: 30px;
+    }
 }
