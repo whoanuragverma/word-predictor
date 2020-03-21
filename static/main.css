@@ -1,7 +1,6 @@
 body{
     font-family: 'Open Sans', sans-serif;
-    overflow: hidden;
-    
+    overflow: hidden;   
 }
 a{
     text-decoration: none !important;
@@ -188,4 +187,17 @@ i{
         top: 0px;
         margin: 30px;
     }
+}
+.modal{
+    font-family: inherit;
+    padding: 15px;
+    display: none;
+    position: fixed;
+    top: 40%;
+    width: 340px;
+    height: 165px;
+    border: 1px solid #b6b2af;
+}
+select{
+    display: block;
 }

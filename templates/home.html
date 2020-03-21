@@ -73,12 +73,43 @@
                     <div class="col-1" onclick="window.open('localhost:5000','_blank');"><i class="material-icons">insert_drive_file</i><br>&nbsp;New</div>
                     <div class="col-1" onclick="save()"><a href="static/untitled.txt" download="Untitled"><i class="material-icons">save</i><br>&nbsp;Save</a></div>
                     <div class="col-1" onclick="window.print()"><i class="material-icons">print</i><br>&nbsp;Print</div>
-                    <div class="col-1" onclick="print()">&nbsp;&nbsp;&nbsp;<i class="material-icons">picture_as_pdf</i><br>&nbsp;Save PDF</div>
-                    <div class="col-1"><i class="material-icons">info</i><br>&nbsp;Info</div>
+                    <div class="col-1" onclick="pdf()">&nbsp;<i class="material-icons">picture_as_pdf</i><br>&nbsp;Save PDF</div>
+                    <div class="col-1" onclick="document.getElementById('modal').style = 'display:block;'"><i class="material-icons">info</i><br>&nbsp;Info</div>
+                    <div class="col-7"></div>
+                </div>
+                <div class="modal" id="modal">
+                    <div class="cross float-right" onclick="document.getElementById('modal').style = 'display:none';">&times;</div>
+                    <h2 class="lead">
+                        <b>Info</b>
+                    </h2>
+                    <hr class="lead-4">
+                    <div class="details">
+                        Words: <span id="words"></span><br>
+                        Total Editing Time: <span id="time"></span><br>
+                        Total suggestions made: <span id="sugg"></span><br>
+                        Browser Agent: <span id="brwsr"></span><br>
+                    </div>
+                </div>
+            </div>
+            <div class="expan active1" id="elem2a">
+                <div class="row">
+                    <div class="col-1">
+                        <select id="font-size">
+                            <option value="12">10</option>
+                            <option value="14" selected="selected">14</option>
+                            <option value="16">16</option>
+                            <option value="24">24</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                        </select>
+                    </div>
+                    <div class="col-1"></div>
+                    <div class="col-1"></div>
+                    <div class="col-1"></div>
+                    <div class="col-1"></div> 
                     <div class="col-7"></div>
                 </div>
             </div>
-            <div class="expan active1" id="elem2a">HOME</div>
             <div class="expan" id="elem4a">HELP</div>
             <div class="expan" id="elem5a">ABOUT</div>
             <div class="expan" id="elem6a">REFERENCES</div>

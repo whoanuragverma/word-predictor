@@ -1,3 +1,13 @@
+var sugg = 0;
+var words = 0;
+var time = 0;
+var size = 14;
+var family = "Open Sans";
+function ticker(){
+    time += 1;
+    $("#time").text(time+" seconds")
+}
+setInterval(ticker,1000);
 $(window).on('load', function() {
     setInterval(removeLoader, 4000);
     setTimeout(toast, 5000);
@@ -16,12 +26,12 @@ function save(){
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-async function print(){
+async function pdf(){
     var element = document.getElementById('input');
-    element.style = "border:none;top:30px;"
+    element.style = "border:none;top:30px;font-size:" + size +"px";
     html2pdf(element);
     await sleep(300);
-    element.style = "border:1px solid #b6b2af;top:180px";
+    element.style = "border:1px solid #b6b2af;top:180px;font-size:" + size +"px";
 }
 function toast() {
     M.toast({
@@ -48,6 +58,7 @@ $("#input").keyup(function(e) {
     var pos = $("#getter").position();
     var i = $(this).text();
     $("#wrds").text(i.length - 1);
+    $("#words").text(i.length - 1);
     if (i == '') {
         $(this).text(" ");
     }
@@ -79,7 +90,7 @@ $("#input").keyup(function(e) {
     var key = i.split(" ");
     $("#title").text(key[1]);
     key = key.pop();
-    var t_w = (getTextWidth(key, "14px Open Sans"));
+    var t_w = (getTextWidth(key, size + "px "+ family));
     var out = "";
     var itime = (new Date()).getTime();
     if (key.length > 0 && last != key) {
@@ -99,6 +110,9 @@ $("#input").keyup(function(e) {
                 $("#ping").text("Ping: " + (otime - itime) + " ms");
                 $("#output").text(out);
                 last = key;
+                sugg = sugg + 1;
+                $("#sugg").text(sugg);
+                $("#brwsr").text(window.navigator.appVersion.substring(73,93));
             }
         });
     }
@@ -162,4 +176,9 @@ $(document).bind('keydown', function(e) {
         document.getElementById("input").innerHTML = i + `<span id="getter"></span>`;
         placeCaretAtEnd(document.getElementById("input"));
     }
+});
+$("#font-size").on('change',function () {
+    size = (document.getElementById("font-size").value);
+    document.getElementById("input").style = "font-size:" + size + "px;"
+    document.getElementById("output").style = "font-size:" + size + "px;"
 });
