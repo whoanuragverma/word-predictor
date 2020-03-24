@@ -4,6 +4,7 @@
     <title>Autocomplete Text Editor</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton|Fredoka+One|Liu+Jian+Mao+Cao|Merriweather:300i,400,900|Raleway:400,700,700i|Roboto:300i,400,900|Ubuntu:300i,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="{{url_for('static',filename='html2pdf.bundle.min.js')}}"></script>
@@ -93,8 +94,8 @@
             </div>
             <div class="expan active1" id="elem2a">
                 <div class="row">
-                    <div class="col-1">
-                        <select id="font-size">
+                    <div class="col-1" style="padding-top: 7px;">
+                        <select id="font-size" class="form-control">
                             <option value="12">10</option>
                             <option value="14" selected="selected">14</option>
                             <option value="16">16</option>
@@ -103,11 +104,21 @@
                             <option value="64">64</option>
                         </select>
                     </div>
-                    <div class="col-1"></div>
+                    <div class="col-2" style="padding-top: 7px;">
+                        <select id="font-face" class="form-control">
+                            <option value="'Anton', sans-serif" style="font-family: 'Anton', sans-serif;">Anton</option>
+                            <option value="'Fredoka One', cursive" style="font-family: 'Fredoka One', cursive;">Fredoka One</option>
+                            <option value="'Open Sans', sans-serif" selected="selected">Open Sans</option> 
+                            <option value="'Liu Jian Mao Cao', cursive" style="font-family: 'Liu Jian Mao Cao', cursive;">Liu Jian Mao Cao</option>
+                            <option value="'Merriweather', serif" style="font-family: 'Merriweather', serif;">Merriweather</option>
+                            <option value="'Raleway', sans-serif" style="font-family: 'Raleway', sans-serif;">Raleway</option>
+                            <option value="'Roboto', sans-serif" style="font-family: 'Roboto', sans-serif;">Roboto</option>
+                        </select>
+                    </div>
                     <div class="col-1"></div>
                     <div class="col-1"></div>
                     <div class="col-1"></div> 
-                    <div class="col-7"></div>
+                    <div class="col-6"></div>
                 </div>
             </div>
             <div class="expan" id="elem4a">HELP</div>

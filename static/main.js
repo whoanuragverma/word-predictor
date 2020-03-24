@@ -1,8 +1,8 @@
 var sugg = 0;
 var words = 0;
 var time = 0;
-var size = 14;
-var family = "Open Sans";
+var size = "14px";
+var family = "'Open Sans', sans-serif";
 function ticker(){
     time += 1;
     $("#time").text(time+" seconds")
@@ -28,10 +28,10 @@ function sleep(ms) {
 }
 async function pdf(){
     var element = document.getElementById('input');
-    element.style = "border:none;top:30px;font-size:" + size +"px";
+    element.style = "border:none;top:30px;font-size:" + size + ";font-family:" + family;
     html2pdf(element);
     await sleep(300);
-    element.style = "border:1px solid #b6b2af;top:180px;font-size:" + size +"px";
+    element.style = "border:1px solid #b6b2af;top:180px;font-size:" + size + ";font-family:" + family;
 }
 function toast() {
     M.toast({
@@ -90,7 +90,7 @@ $("#input").keyup(function(e) {
     var key = i.split(" ");
     $("#title").text(key[1]);
     key = key.pop();
-    var t_w = (getTextWidth(key, size + "px "+ family));
+    var t_w = (getTextWidth(key, size + " " + family.split("'")[1]));
     var out = "";
     var itime = (new Date()).getTime();
     if (key.length > 0 && last != key) {
@@ -178,7 +178,16 @@ $(document).bind('keydown', function(e) {
     }
 });
 $("#font-size").on('change',function () {
-    size = (document.getElementById("font-size").value);
-    document.getElementById("input").style = "font-size:" + size + "px;"
-    document.getElementById("output").style = "font-size:" + size + "px;"
+    size = document.getElementById("font-size").value + "px";
+    var input = document.getElementById('input');
+    input.style.setProperty("font-size",size);
+    var output = document.getElementById('output');
+    output.style.setProperty("font-size",size);
+});
+$("#font-face").on('change',function () {
+    family = document.getElementById("font-face").value;
+    var input = document.getElementById('input');
+    input.style.setProperty("font-family",family);
+    var output = document.getElementById('output');
+    output.style.setProperty("font-family",family);
 });

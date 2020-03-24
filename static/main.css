@@ -29,6 +29,7 @@ a{
     border-bottom:  0.7px solid #b6b2af;
 }
 #input{
+    white-space: normal;
     background-color: #ffffff;
     position: relative;
     top: 180px;
