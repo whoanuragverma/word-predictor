@@ -1,83 +1,140 @@
 <html>
-  <head>
+
+<head>
     <title>Autocomplete Text Editor</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link href="{{url_for('static',filename='main.css')}}" rel="stylesheet" type="text/css">
-  </head>
-  <body id="body">
-    <div id="offline">
-      <div class="content">
-        <div class="text-center">
-        <img src="{{url_for('static',filename='icon.png')}}" alt="icon" class="icon">
-        <br><br>
-    <div class="intro">Autocomplete Text Editor</div>
-    <br>
-    <div class="short-exp">Uh oh! Seems like you're offline. Waiting for connection... </div><br>
-    <div class="progress" style="background-color: #616161;">
-      <div class="indeterminate"></div>
-    </div>
-    </div></div></div>
+    <link href="https://fonts.googleapis.com/css?family=Anton|Fredoka+One|Liu+Jian+Mao+Cao|Merriweather:300i,400,900|Raleway:400,700,700i|Roboto:300i,400,900|Ubuntu:300i,400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="{{url_for('static',filename='html2pdf.bundle.min.js')}}"></script>
+    <link href="{{url_for('static',filename='main.css')}}" rel="stylesheet" type="text/css">
+</head>
+
+<body id="body">
     <div id="notsupport" style="display: none;">
-      <div class="content">
-        <div class="text-center">
-        <img src="{{url_for('static',filename='icon.png')}}" alt="icon" class="icon">
-        <br><br>
-    <div class="intro">Autocomplete Text Editor</div>
-    <br>
-    <div class="short-exp">Uh oh! We don't support your screen resolution yet, try using on laptop </div><br>
-    </div></div></div>
-  
-  <div id="loader">
-    <div class="content">
-        <div class="text-center">
-            <img src="{{url_for('static',filename='icon.png')}}" alt="icon" class="icon">
-            <br><br>
-        <div class="intro">Autocomplete Text Editor</div>
-        <br>
-        <div class="short-exp">Hang on! Loading...</div>
+        <div class="content">
+            <div class="text-center">
+                <img src="{{url_for('static',filename='icon.png')}}" alt="icon" class="icon">
+                <br>
+                <br>
+                <div class="intro">Autocomplete Text Editor</div>
+                <br>
+                <div class="short-exp">Uh oh! We don't support your screen resolution yet, try using on laptop </div>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    <div id="loader">
+        <div class="content">
+            <div class="text-center">
+                <img src="{{url_for('static',filename='icon.png')}}" alt="icon" class="icon">
+                <br>
+                <br>
+                <div class="intro">Autocomplete Text Editor</div>
+                <br>
+                <div class="short-exp">Hang on! Loading...</div>
+            </div>
+
+            <br>
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+        </div>
+    </div>
+    <div id="ui">
+        <div class="banner">
+            <div class="text-center top"><span id="title">Untitled</span> - Autocomplete Text Editor</div>
+            <div class="layout">
+                <span class="buttons" id="elem1"><span class="button text">&nbsp;File&nbsp;</span></span>
+                <span class="buttons active" id="elem2"><span class="button text">Home</span></span>
+                <span class="buttons" id="elem4"><span class="button text">Help</span></span>
+                <span class="buttons" id="elem5"><span class="button text">About</span></span>
+                <span class="buttons" id="elem6"><span class="button text">References</span></span>
+            </div>
+            <div class="expan" id="elem1a">
+                <div class="row">
+                    <div class="col-1 menu" onclick="window.open('localhost:5000','_blank');"><i class="material-icons">insert_drive_file</i><br>&nbsp;New</div>
+                    <div class="col-1 menu" onclick="save()"><a href="static/untitled.txt" download="Untitled"><i class="material-icons">save</i><br>&nbsp;Save</a></div>
+                    <div class="col-1 menu" onclick="window.print()"><i class="material-icons">print</i><br>&nbsp;Print</div>
+                    <div class="col-1 menu" onclick="pdf()">&nbsp;<i class="material-icons">picture_as_pdf</i><br>&nbsp;Save PDF</div>
+                    <div class="col-1 menu" onclick="document.getElementById('modal').style = 'display:block;'"><i class="material-icons">info</i><br>&nbsp;Info</div>
+                    <div class="col-7"></div>
+                </div>
+                <div class="modal" id="modal">
+                    <div class="cross float-right" onclick="document.getElementById('modal').style = 'display:none';">&times;</div>
+                    <h2 class="lead">
+                        <b>Info</b>
+                    </h2>
+                    <hr class="lead-4">
+                    <div class="details">
+                        Words: <span id="words"></span><br>
+                        Total Editing Time: <span id="time"></span><br>
+                        Total suggestions made: <span id="sugg"></span><br>
+                        Browser Agent: <span id="brwsr"></span><br>
+                    </div>
+                </div>
+            </div>
+            <div class="expan active1" id="elem2a">
+                <div class="row">
+                    <div class="col-1" style="padding-top: 7px;">
+                        <select id="font-size" class="form-control">
+                            <option value="12">10</option>
+                            <option value="14" selected="selected">14</option>
+                            <option value="16">16</option>
+                            <option value="24">24</option>
+                            <option value="32">32</option>
+                            <option value="64">64</option>
+                        </select>
+                    </div>
+                    <div class="col-2" style="padding-top: 7px;">
+                        <select id="font-face" class="form-control">
+                            <option value="'Anton', sans-serif" style="font-family: 'Anton', sans-serif;">Anton</option>
+                            <option value="'Fredoka One', cursive" style="font-family: 'Fredoka One', cursive;">Fredoka One</option>
+                            <option value="'Open Sans', sans-serif" selected="selected">Open Sans</option> 
+                            <option value="'Liu Jian Mao Cao', cursive" style="font-family: 'Liu Jian Mao Cao', cursive;">Liu Jian Mao Cao</option>
+                            <option value="'Merriweather', serif" style="font-family: 'Merriweather', serif;">Merriweather</option>
+                            <option value="'Raleway', sans-serif" style="font-family: 'Raleway', sans-serif;">Raleway</option>
+                            <option value="'Roboto', sans-serif" style="font-family: 'Roboto', sans-serif;">Roboto</option>
+                        </select>
+                    </div>
+                    <div class="col-2" style="padding-top: 8px; padding-left: 38px;">
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="bold" onclick="bold()">format_bold</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="italic" onclick="italic()">format_italic</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="underline" onclick="underline()">format_underline</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="strike" onclick="strike()">format_strikethrough</span>
+                    </div>
+                    <div class="col-2" style="padding-top: 8px;">
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="left" onclick="left()" >format_align_left</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="center" onclick="center()">format_align_center</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="right" onclick="right()">format_align_right</span>
+                    </div> 
+                    <div class="col-5"></div>
+                </div>
+            </div>
+            <div class="expan" id="elem4a">HELP</div>
+            <div class="expan" id="elem5a">ABOUT</div>
+            <div class="expan" id="elem6a">REFERENCES</div>
         </div>
 
-        <br>
-      <div class="progress">
-        <div class="indeterminate"></div>
-      </div>
+        <div class="bck"></div>
+        <pre id="input" contenteditable="true"> <span id="getter"></span></span></pre>
+        <pre id="output"></pre>
+
+        <div id="ftr">
+            Words: <span id="wrds">0</span>
+            <span id="ping" class="float-right"></span>
+        </div>
     </div>
-  </div>
-  <div id = "ui">
-  <div class="banner">
-    <div class="text-center top"><span id="title">Untitled</span> - Autocomplete Text Editor</div>
-    <div class="layout">
-      <span class="buttons" id="elem1"><span class="button text">&nbsp;File&nbsp;</span></span>
-      <span class="buttons active" id="elem2"><span class="button text">Home</span></span>
-      <span class="buttons" id="elem3"><span class="button text">Print</span></span>
-      <span class="buttons" id="elem4"><span class="button text">Help</span></span>
-      <span class="buttons" id="elem5"><span class="button text">About</span></span>
-      <span class="buttons" id="elem6"><span class="button text">References</span></span>
-    </div>
-    <div class="expan" id="ele1">A changing menu here -- To be added</div>
-  </div>
-  
-<div class="bck"></div>
-<pre id="input" contenteditable="true"> <span id="getter"></span></span></pre>
-<pre id="output"></pre>
 
-
-<div id="ftr">
-  Words: <span id="wrds">0</span>
-  <span id="ping" class="float-right"></span>
-</div>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script
-src="{{url_for('static',filename='jquery-3.4.1.min.js')}}"></script>
-<script src="{{url_for('static',filename='caret.js')}}"></script>
-<script src="{{url_for('static',filename='jquery.hotkeys.min.js')}}"></script>
-<script src="{{url_for('static',filename='main.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="{{url_for('static',filename='jquery-3.4.1.min.js')}}"></script>
+    <script src="{{url_for('static',filename='caret.js')}}"></script>
+    <script src="{{url_for('static',filename='main.js')}}"></script>
 </body>
+
 </html>

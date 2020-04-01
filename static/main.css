@@ -1,7 +1,10 @@
 body{
     font-family: 'Open Sans', sans-serif;
-    overflow: hidden;
-    
+    overflow: hidden;   
+}
+a{
+    text-decoration: none !important;
+    color: #000;
 }
 ::-webkit-scrollbar{
     width: 0px !important;
@@ -26,6 +29,7 @@ body{
     border-bottom:  0.7px solid #b6b2af;
 }
 #input{
+    white-space: pre-wrap;
     background-color: #ffffff;
     position: relative;
     top: 180px;
@@ -156,4 +160,54 @@ body{
     background-color: #616161;
     width: 320px;
     max-height: 40px;
+}
+.expan{
+    display: none;
+}
+.active1{
+    display: block;
+}
+.row{
+    padding-left: 15px;
+    cursor: pointer;
+}
+i{
+    padding: 5px;
+    font-size: 28px !important;
+}
+.menu :hover{
+    color: #0057b3;
+}
+@media print{
+    .banner, #ftr, #output{
+        display: none !important;
+    }
+    #input{
+        border: none !important;
+        position: fixed;
+        top: 0px;
+        margin: 30px;
+    }
+}
+.modal{
+    font-family: inherit;
+    padding: 15px;
+    display: none;
+    position: fixed;
+    top: 40%;
+    width: 340px;
+    height: 165px;
+    border: 1px solid #b6b2af;
+}
+select{
+    display: block;
+}
+.toggle{
+    background-color: #b6b2af;
+}
+.font-underline{
+    text-decoration: underline;
+}
+.font-strike{
+    text-decoration: line-through;
 }

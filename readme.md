@@ -5,14 +5,14 @@ It is a short and simple deployment to tree data structure to run an auto comple
 ## Targets
 
 - [x] Combine C++ code with python app
-- [ ] Add UI
+- [x] Add UI
     - [x] Basic Text Editor UI
     - [x] Show Suggestions aligned with Text
-    - [ ] Add additional functions like save, print, etc.
-- [ ] Functionality
+    - [x] Add additional functions like save, print, etc.
+- [x] Functionality
     - [x] Allow Enter key press
-    - [ ] Add paste functionality
-    - [ ] Add text style modification
+    - [x] Add paste functionality
+    - [x] Add text style modification
 - [x] Make output responsive
 - [x] Remove random **a** suggestions
 - [x] Improve key press detection failure
