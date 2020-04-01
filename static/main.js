@@ -117,10 +117,19 @@ $("#input").keyup(function(e) {
         });
     }
 });
-$("#body").bind("contextmenu paste", function(e) {
-    console.log("Right click and paste disabled.");
+$("#body").bind("contextmenu", function(e) {
+    console.log("Right click disabled.");
     e.preventDefault();
 });
+$("#input").on("paste",function(event){
+    event.preventDefault();
+    var clipboarddata = $("#input").text()
+    clipboarddata +=  window.event.clipboardData.getData('text');    
+    clipboarddata += '<span id="getter"></span>';
+    document.getElementById("input").innerHTML = clipboarddata;
+    placeCaretAtEnd(document.getElementById("input"));
+});
+
 $('span.buttons').click(function() {
     var id = $(this).attr('id');
     document.getElementById(active).className = "buttons";
@@ -139,13 +148,10 @@ function offline() {
     } else {
         $("#notsupport").hide();
         if (navigator.onLine != true) {
-            $("#offline").fadeIn(1500);
-            $("#ui").hide();
-            $("#loader").fadeOut(1200);
+            $("#ui").show();
         } else {
-            $("#offline").fadeOut(1200);
-            $("#ui").fadeIn(1500);
-            $("#loader").fadeIn(1500);
+            $("#ui").show();
+            $("#loader").show();
         }
     }
 }
@@ -191,3 +197,94 @@ $("#font-face").on('change',function () {
     var output = document.getElementById('output');
     output.style.setProperty("font-family",family);
 });
+function bold(){
+    if($("#bold").hasClass("toggle")){
+        $("#bold").removeClass("toggle");
+        $("#input").removeClass("font-weight-bold");
+        $("#output").removeClass("font-weight-bold");
+    }else{
+        $("#bold").addClass("toggle");
+        $("#input").addClass("font-weight-bold");
+        $("#output").addClass("font-weight-bold");
+    }
+}
+function italic(){
+    if($("#italic").hasClass("toggle")){
+        $("#italic").removeClass("toggle");
+        $("#input").removeClass("font-italic");
+        $("#output").removeClass("font-italic");
+    }else{
+        $("#italic").addClass("toggle");
+        $("#input").addClass("font-italic");
+        $("#output").addClass("font-italic");
+    }
+}
+function underline(){
+    if($("#underline").hasClass("toggle")){
+        $("#underline").removeClass("toggle");
+        $("#input").removeClass("font-underline");
+    }else{
+        $("#underline").addClass("toggle");
+        $("#input").addClass("font-underline");
+    }
+}
+function strike(){
+    if($("#strike").hasClass("toggle")){
+        $("#input").removeClass("font-strike");
+        $("#strike").removeClass("toggle");
+    }else{
+        $("#strike").addClass("toggle");
+        $("#input").addClass("font-strike");;
+    }
+}
+function left(){
+    if($("#right").hasClass("toggle")){
+        $("#right").removeClass("toggle");
+        $("#input").removeClass("text-right");
+    }
+    if($("#center").hasClass("toggle")){
+        $("#center").removeClass("toggle");
+        $("#input").removeClass("text-center");
+    }
+    if($("#left").hasClass("toggle")){
+        $("#input").removeClass("text-left");
+        $("#left").removeClass("toggle");
+    }else{
+        $("#left").addClass("toggle");
+        $("#input").addClass("text-left");;
+    }
+}
+function center(){
+    if($("#right").hasClass("toggle")){
+        $("#right").removeClass("toggle");
+        $("#input").removeClass("text-right");
+    }
+    if($("#left").hasClass("toggle")){
+        $("#left").removeClass("toggle");
+        $("#input").removeClass("text-left");
+    }
+    if($("#center").hasClass("toggle")){
+        $("#input").removeClass("text-center");
+        $("#center").removeClass("toggle");
+    }else{
+        $("#center").addClass("toggle");
+        $("#input").addClass("text-center");;
+    }
+}
+function right(){
+    if($("#left").hasClass("toggle")){
+        $("#left").removeClass("toggle");
+        $("#input").removeClass("text-left");
+    }
+    if($("#center").hasClass("toggle")){
+        $("#center").removeClass("toggle");
+        $("#input").removeClass("text-center");
+    }
+    if($("#right").hasClass("toggle")){
+        $("#input").removeClass("text-right");
+        $("#right").removeClass("toggle");
+    }else{
+        $("#right").addClass("toggle");
+        $("#input").addClass("text-right");;
+    }
+}

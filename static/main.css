@@ -29,7 +29,7 @@ a{
     border-bottom:  0.7px solid #b6b2af;
 }
 #input{
-    white-space: normal;
+    white-space: pre-wrap;
     background-color: #ffffff;
     position: relative;
     top: 180px;
@@ -175,7 +175,7 @@ i{
     padding: 5px;
     font-size: 28px !important;
 }
-.col-1:hover{
+.menu :hover{
     color: #0057b3;
 }
 @media print{
@@ -201,4 +201,13 @@ i{
 }
 select{
     display: block;
+}
+.toggle{
+    background-color: #b6b2af;
+}
+.font-underline{
+    text-decoration: underline;
+}
+.font-strike{
+    text-decoration: line-through;
 }

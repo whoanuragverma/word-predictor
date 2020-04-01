@@ -9,10 +9,10 @@ It is a short and simple deployment to tree data structure to run an auto comple
     - [x] Basic Text Editor UI
     - [x] Show Suggestions aligned with Text
     - [x] Add additional functions like save, print, etc.
-- [ ] Functionality
+- [x] Functionality
     - [x] Allow Enter key press
-    - [ ] Add paste functionality
-    - [ ] Add text style modification
+    - [x] Add paste functionality
+    - [x] Add text style modification
 - [x] Make output responsive
 - [x] Remove random **a** suggestions
 - [x] Improve key press detection failure

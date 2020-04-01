@@ -12,22 +12,6 @@
 </head>
 
 <body id="body">
-    <div id="offline">
-        <div class="content">
-            <div class="text-center">
-                <img src="{{url_for('static',filename='icon.png')}}" alt="icon" class="icon">
-                <br>
-                <br>
-                <div class="intro">Autocomplete Text Editor</div>
-                <br>
-                <div class="short-exp">Uh oh! Seems like you're offline. Waiting for connection... </div>
-                <br>
-                <div class="progress" style="background-color: #616161;">
-                    <div class="indeterminate"></div>
-                </div>
-            </div>
-        </div>
-    </div>
     <div id="notsupport" style="display: none;">
         <div class="content">
             <div class="text-center">
@@ -71,11 +55,11 @@
             </div>
             <div class="expan" id="elem1a">
                 <div class="row">
-                    <div class="col-1" onclick="window.open('localhost:5000','_blank');"><i class="material-icons">insert_drive_file</i><br>&nbsp;New</div>
-                    <div class="col-1" onclick="save()"><a href="static/untitled.txt" download="Untitled"><i class="material-icons">save</i><br>&nbsp;Save</a></div>
-                    <div class="col-1" onclick="window.print()"><i class="material-icons">print</i><br>&nbsp;Print</div>
-                    <div class="col-1" onclick="pdf()">&nbsp;<i class="material-icons">picture_as_pdf</i><br>&nbsp;Save PDF</div>
-                    <div class="col-1" onclick="document.getElementById('modal').style = 'display:block;'"><i class="material-icons">info</i><br>&nbsp;Info</div>
+                    <div class="col-1 menu" onclick="window.open('localhost:5000','_blank');"><i class="material-icons">insert_drive_file</i><br>&nbsp;New</div>
+                    <div class="col-1 menu" onclick="save()"><a href="static/untitled.txt" download="Untitled"><i class="material-icons">save</i><br>&nbsp;Save</a></div>
+                    <div class="col-1 menu" onclick="window.print()"><i class="material-icons">print</i><br>&nbsp;Print</div>
+                    <div class="col-1 menu" onclick="pdf()">&nbsp;<i class="material-icons">picture_as_pdf</i><br>&nbsp;Save PDF</div>
+                    <div class="col-1 menu" onclick="document.getElementById('modal').style = 'display:block;'"><i class="material-icons">info</i><br>&nbsp;Info</div>
                     <div class="col-7"></div>
                 </div>
                 <div class="modal" id="modal">
@@ -115,10 +99,18 @@
                             <option value="'Roboto', sans-serif" style="font-family: 'Roboto', sans-serif;">Roboto</option>
                         </select>
                     </div>
-                    <div class="col-1"></div>
-                    <div class="col-1"></div>
-                    <div class="col-1"></div> 
-                    <div class="col-6"></div>
+                    <div class="col-2" style="padding-top: 8px; padding-left: 38px;">
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="bold" onclick="bold()">format_bold</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="italic" onclick="italic()">format_italic</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="underline" onclick="underline()">format_underline</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="strike" onclick="strike()">format_strikethrough</span>
+                    </div>
+                    <div class="col-2" style="padding-top: 8px;">
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="left" onclick="left()" >format_align_left</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="center" onclick="center()">format_align_center</span>
+                        <span class="material-icons" style="padding:5px;border-radius: 2px;" id="right" onclick="right()">format_align_right</span>
+                    </div> 
+                    <div class="col-5"></div>
                 </div>
             </div>
             <div class="expan" id="elem4a">HELP</div>
