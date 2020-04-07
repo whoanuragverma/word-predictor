@@ -58,7 +58,7 @@
                     <div class="col-1 menu" onclick="window.open('localhost:5000','_blank');"><i class="material-icons">insert_drive_file</i><br>&nbsp;New</div>
                     <div class="col-1 menu" onclick="save()"><a href="static/untitled.txt" download="Untitled"><i class="material-icons">save</i><br>&nbsp;Save</a></div>
                     <div class="col-1 menu" onclick="window.print()"><i class="material-icons">print</i><br>&nbsp;Print</div>
-                    <div class="col-1 menu" onclick="pdf()">&nbsp;<i class="material-icons">picture_as_pdf</i><br>&nbsp;Save PDF</div>
+                    <div class="col-1 menu" onclick="pdf()">&nbsp;<i class="material-icons" style="padding-left: 12px;">picture_as_pdf</i><br>&nbsp;Save PDF</div>
                     <div class="col-1 menu" onclick="document.getElementById('modal').style = 'display:block;'"><i class="material-icons">info</i><br>&nbsp;Info</div>
                     <div class="col-7"></div>
                 </div>
@@ -113,8 +113,50 @@
                     <div class="col-5"></div>
                 </div>
             </div>
-            <div class="expan" id="elem4a">HELP</div>
-            <div class="expan" id="elem5a">ABOUT</div>
+            <div class="expan" id="elem4a">
+                <div class="row">
+                    <div class="col-1 menu" onclick="document.getElementById('modal1').style = 'display:block;'"><i class="material-icons">help</i><br>&nbsp;Help</div>
+                    <div class="col-1 menu" onclick="document.getElementById('modal2').style = 'display:block;'"><i class="material-icons" style="padding-left: 22px;">accessibility_new</i><br>Accessibility</div>
+                </div>
+                <div class="modal" id="modal1">
+                    <div class="cross float-right" onclick="document.getElementById('modal1').style = 'display:none';">&times;</div>
+                       <h2 class="lead">
+                            <b>Help</b>
+                        </h2>
+                        <hr class="lead-4">
+                        <div class="details">
+                            We have designed this app to help people write long words with ease.<br>
+                            As of now we support only desktops and hopefully add more features.
+                        </div>
+                </div>
+                <div class="modal" id="modal2">
+                    <div class="cross float-right" onclick="document.getElementById('modal2').style = 'display:none';">&times;</div>
+                       <h2 class="lead">
+                            <b>Accessibility</b>
+                        </h2>
+                        <hr class="lead-4">
+                        <div class="details">
+                            <li>To insert a suggestion use CTRL and Left Arrow key.</li>
+                            <li>To browse through the list of suggestions use CTRL and Down arrow key.</li>
+                        </div>
+                </div>    
+            </div>
+            <div class="expan" id="elem5a">
+                <div class="row">
+                    <div class="col-1 menu" onclick="document.getElementById('modal3').style = 'display:block;'"><i class="material-icons" style="padding-left: 10px;">new_releases</i><br>&nbsp;About</div>
+                </div>
+                <div class="modal large" id="modal3" >
+                    <div class="cross float-right" onclick="document.getElementById('modal3').style = 'display:none';">&times;</div>
+                       <h2 class="lead">
+                            <b>About</b>
+                        </h2>
+                        <hr class="lead-4">
+                        <div class="details">
+                            <li>The backend of this app uses C++ which basically creates a tree consisting of all the words in the dictionary.</li>
+                            <li>Then the javascript API dete</li>
+                        </div>
+                </div>    
+            </div>
             <div class="expan" id="elem6a">REFERENCES</div>
         </div>
 

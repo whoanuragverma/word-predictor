@@ -106,7 +106,7 @@ $("#input").keyup(function(e) {
                 $("#output").css("display", "block");
                 $("#output").css("position", "absolute");
                 $("#output").css("top", pos.top + 179.67);
-                $("#output").css("left", pos.left - t_w + 1 + 240);
+                $("#output").css("left", pos.left - t_w + document.documentElement.clientWidth * .188);
                 $("#ping").text("Ping: " + (otime - itime) + " ms");
                 $("#output").text(out);
                 last = key;
@@ -141,18 +141,12 @@ $('span.buttons').click(function() {
 
 function offline() {
     if (window.innerWidth < 640) {
-        $("#loader").fadeOut(1200);
-        $("ui").fadeIn(1500);
+        $("#loader").hide();
+        $("#ui").hide();
         $("#notsupport").show();
-        $("#ftr").hide();
     } else {
         $("#notsupport").hide();
-        if (navigator.onLine != true) {
-            $("#ui").show();
-        } else {
-            $("#ui").show();
-            $("#loader").show();
-        }
+        $("#ui").show();
     }
 }
 setInterval(offline, 1000);
@@ -170,6 +164,7 @@ $(document).bind('keydown', function(e) {
         placeCaretAtEnd(document.getElementById("input"));
     }
 });
+
 $(document).bind('keydown', function(e) {
     if (e.ctrlKey && e.which == 39) {
         var i = $("#input").text();

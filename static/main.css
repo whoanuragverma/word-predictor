@@ -76,6 +76,7 @@ a{
     height: 100%;
     z-index: 1;
     color: #fff;
+    overflow: hidden;
 }
 .content{
     position: absolute;
@@ -175,8 +176,13 @@ i{
     padding: 5px;
     font-size: 28px !important;
 }
-.menu :hover{
+.menu:hover{
     color: #0057b3;
+}
+.large{
+    width: 540px !important;
+    height: 300px !important;
+    top: 30% !important;
 }
 @media print{
     .banner, #ftr, #output{
