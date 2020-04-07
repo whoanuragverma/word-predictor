@@ -9,8 +9,17 @@ a{
 ::-webkit-scrollbar{
     width: 0px !important;
 }
+.scroll{
+    overflow: auto !important; 
+    width: 600px !important;
+    top: 30% !important;
+    height: 300px !important;
+}
 #ui{
     display: none;
+}
+.cross{
+    cursor: pointer;
 }
 .bck{
     position: fixed;

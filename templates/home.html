@@ -144,6 +144,7 @@
             <div class="expan" id="elem5a">
                 <div class="row">
                     <div class="col-1 menu" onclick="document.getElementById('modal3').style = 'display:block;'"><i class="material-icons" style="padding-left: 10px;">new_releases</i><br>&nbsp;About</div>
+                    <div class="col-1 menu"><a href="https://github.com/whoanuragverma/word-predictor" target="blank"><i class="material-icons">code</i><br>Code</a></div>
                 </div>
                 <div class="modal large" id="modal3" >
                     <div class="cross float-right" onclick="document.getElementById('modal3').style = 'display:none';">&times;</div>
@@ -153,11 +154,73 @@
                         <hr class="lead-4">
                         <div class="details">
                             <li>The backend of this app uses C++ which basically creates a tree consisting of all the words in the dictionary.</li>
-                            <li>Then the javascript API dete</li>
+                            <li>This backend C++ program is not so reliable for creating modern applications. So, A python server helps the UI and the backend C++ interact with each other. </li>
+                            <li>The python app thus creates a server consiting of an API. This API is used in the application with the help of AJAX.</li>
+                            <li>The Jquery layer then detects keypress and sends requests to the server.</li>
+                            <li>The server responds in JSON files which are displayed in result.</li>
                         </div>
                 </div>    
             </div>
-            <div class="expan" id="elem6a">REFERENCES</div>
+            <div class="expan" id="elem6a">
+                <div class="row">
+                    <div class="col-1 menu" onclick="document.getElementById('modal4').style = 'display:block;'">
+                        <i class="material-icons" style="padding-left: 10px;">https</i><br>License
+                    </div>
+                    <div class="col-2 menu" onclick="document.getElementById('modal5').style = 'display:block;'">
+                        <i class="material-icons" style="padding-left: 25px;">security</i><br>Other Legal
+                    </div>
+                </div>
+                <div class="modal large" id="modal5">
+                    <div class="cross float-right" onclick="document.getElementById('modal5').style = 'display:none';">&times;</div>
+                       <h2 class="lead">
+                            <b>Other Open Source Licences</b>
+                        </h2>
+                        <hr class="lead-4">
+                        <div class="details">
+                            <li><a href="javascript:window.open('{{url_for('static',filename='bootstrap.txt')}}','LICENSE','width=550,height=350')">Bootstrap</a></li>
+                            <li><a href="javascript:window.open('{{url_for('static',filename='jquery.txt')}}','LICENSE','width=550,height=350')">Jquery</a></li>
+                            <li><a href="javascript:window.open('{{url_for('static',filename='googleapis.txt')}}','LICENSE','width=550,height=350')">Google APIs</a></li>
+                            <li><a href="javascript:window.open('{{url_for('static',filename='materialize.txt')}}','LICENSE','width=550,height=350')">Materialize</a></li>
+                            <li><a href="javascript:window.open('{{url_for('static',filename='materialcomponents.txt')}}','LICENSE','width=550,height=350')">Material Components</a></li>
+                            <li><a href="javascript:window.open('{{url_for('static',filename='flask.txt')}}','LICENSE','width=550,height=350')">Flask</a></li>
+                            <li><a href="javascript:window.open('{{url_for('static',filename='popper.txt')}}','LICENSE','width=550,height=350')">Popper JS</a></li>
+                            <li><a href="javascript:window.open('{{url_for('static',filename='html2pdf.txt')}}','LICENSE','width=550,height=350')">html2pdf</a></li>
+                            <li>Special thanks to folks at Stack Overflow</li>
+                        </div>
+                </div>  
+                <div class="modal scroll" id="modal4">
+                    <div class="cross float-right" onclick="document.getElementById('modal4').style = 'display:none';">&times;</div>
+                       <h2 class="lead">
+                            <b>License</b>
+                        </h2>
+                        <hr class="lead-4">
+                        <div class="details">
+                            <pre style="white-space: pre-line;">
+                                MIT License
+
+                                Copyright (c) 2020  Anurag Verma
+                                
+                                Permission is hereby granted, free of charge, to any person obtaining a copy
+                                of this software and associated documentation files (the "Software"), to deal
+                                in the Software without restriction, including without limitation the rights
+                                to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                copies of the Software, and to permit persons to whom the Software is
+                                furnished to do so, subject to the following conditions:
+                                
+                                The above copyright notice and this permission notice shall be included in all
+                                copies or substantial portions of the Software.
+                                
+                                THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+                                SOFTWARE.
+                            </pre>
+                        </div>
+                </div>  
+            </div>
         </div>
 
         <div class="bck"></div>
