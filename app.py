@@ -3,9 +3,12 @@ from flask import Flask, request, jsonify, render_template, url_for
 
 app = Flask(__name__)
 
+@app.before_first_request
+def start():
+    os.system('''cmd /c "start /min cmd.exe /c backend.exe "''')
+
 @app.route('/')
 def home():
-    os.system('''cmd /c "start /min cmd.exe /c backend.exe "''')
     return render_template('home.html')
 
 @app.errorhandler(404)
